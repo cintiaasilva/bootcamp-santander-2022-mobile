@@ -4,6 +4,6 @@
 
 Entrada: Dois números do tipo Float e um número que corresponda a operação (+, - , *, /) do tipo Int;
 
-Saida: Exiba o resultado como Float ;
+Saída: Exiba o resultado como Float  ou mensagem de erro;
 
 Adicional: Porcentagem, potenciação, etc.
