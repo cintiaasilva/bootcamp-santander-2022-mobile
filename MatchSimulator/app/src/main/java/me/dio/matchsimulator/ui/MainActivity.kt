@@ -17,7 +17,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var matchesAdapter: MatchesAdapter
+    private var matchesAdapter: MatchesAdapter = MatchesAdapter(Collections.emptyList())
     private lateinit var matchesApi: MatchesApi
     private lateinit var binding: ActivityMainBinding
     private lateinit var matches: List<Match>
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         setupHttpClient() // retrofit
 
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         // config no recyclerView pegando o elemento de binding
         binding.rvMatches.setHasFixedSize(true) // tamanho fixo
         binding.rvMatches.layoutManager = LinearLayoutManager(this)
-
+        binding.rvMatches.adapter = matchesAdapter // ajuste realizado p/ se acaso o celular ficar sem internet o Refresh não some
         findMatchesFromApi()
     }
 
