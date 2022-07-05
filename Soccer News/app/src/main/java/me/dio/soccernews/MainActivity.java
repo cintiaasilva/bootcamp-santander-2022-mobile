@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
 
         // configura os elementos do Bottom navigation (https://material.io/components/bottom-navigation)
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.navigation_home, R.id.navigation_dashboard).build();
 
         //NavController = gerencia toda a transição dos fragmentos dentro da MainActivity
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
