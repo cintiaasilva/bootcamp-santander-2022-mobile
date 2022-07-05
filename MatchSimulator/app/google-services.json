@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "12872420067",
+    "project_id": "match-simulator",
+    "storage_bucket": "match-simulator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12872420067:android:c8403f3f5ef2260dbb13d6",
+        "android_client_info": {
+          "package_name": "me.dio.matchsimulator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12872420067-e5r8q075mp35ro52jia8hqdvcaajfenr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa7KvjVwUm3aDrBpBl0yfoBt6UkI6oURU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12872420067-e5r8q075mp35ro52jia8hqdvcaajfenr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
