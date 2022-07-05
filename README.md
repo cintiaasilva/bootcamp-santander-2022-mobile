@@ -2,4 +2,4 @@
 
 
 
-Bootcamp focado no aprendizado de Kotlin e Android Nativo para criação de aplicativos
+Bootcamp focado no aprendizado de Kotlin/Java e Android Nativo para criação de aplicativos
