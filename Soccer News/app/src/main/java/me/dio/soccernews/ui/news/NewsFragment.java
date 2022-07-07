@@ -21,7 +21,9 @@ public class NewsFragment extends Fragment {
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        homeViewModel.getText().observe(getViewLifecycleOwner(), binding.textHome::setText);
+        homeViewModel.getNews().observe(getViewLifecycleOwner(), news -> {
+            //TODO: Criar um adapter para o RecyclerView
+        });
         return root;
     }
 
