@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import me.dio.soccernews.databinding.FragmentNewsBinding;
+import me.dio.soccernews.ui.adapter.NewsAdapter;
 
 public class NewsFragment extends Fragment {
 
@@ -21,9 +23,9 @@ public class NewsFragment extends Fragment {
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        homeViewModel.getNews().observe(getViewLifecycleOwner(), news -> {
-            //TODO: Criar um adapter para o RecyclerView
-        });
+        binding.rvNews.setLayoutManager(new LinearLayoutManager(getContext()));
+        homeViewModel.getNews().observe(getViewLifecycleOwner(), news -> binding.rvNews.setAdapter(new NewsAdapter(news)));
+
         return root;
     }
 
