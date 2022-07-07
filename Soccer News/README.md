@@ -14,3 +14,9 @@
 
 [Bottom Navigation](https://material.io/components/bottom-navigation)
 
+[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?hl=pt-br)
+
+[LiveData](https://developer.android.com/topic/libraries/architecture/livedata?hl=pt-br)
+
+[Cards](https://material.io/components/cards)
+

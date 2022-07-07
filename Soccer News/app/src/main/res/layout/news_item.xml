@@ -4,54 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="@dimen/default_half_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/ivThumbnail"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="@dimen/news_image_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/cd_news_image"/>
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            tools:text="Brasil vence Argentina"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/ivThumbnail" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            tools:text="Brasileiras vencem argentinas de 7 a 0 nesta copa 2022"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
+            android:id="@+id/btOpenLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Button"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:text="@string/txt_open_link"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription"
             style="?attr/borderlessButtonStyle"/>
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            app:layout_constraintBottom_toBottomOf="@+id/btOpenLink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btOpenLink"
+            app:srcCompat="@drawable/ic_share"
+            android:contentDescription="@string/cd_share_icon" />
+
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            app:layout_constraintBottom_toBottomOf="@+id/btOpenLink"
+            app:layout_constraintEnd_toStartOf="@+id/ivShare"
+            app:layout_constraintTop_toTopOf="@+id/btOpenLink"
+            app:srcCompat="@drawable/ic_favorite"
+            android:contentDescription="@string/cd_favorite_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
