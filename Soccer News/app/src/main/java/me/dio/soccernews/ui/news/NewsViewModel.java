@@ -1,32 +1,54 @@
 package me.dio.soccernews.ui.news;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import me.dio.soccernews.data.remote.SoccerNewsApi;
 import me.dio.soccernews.domain.News;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 // ViewModel é um componente que lida de forma otimizada com relação ao ciclo de vida das activity/fragmentos
 
 // LiveData que retorna a lista de noticias
 public class NewsViewModel extends ViewModel {
 
-    private final MutableLiveData<List<News>> news;
+    private final MutableLiveData<List<News>> news =  new MutableLiveData<>();
 
     public NewsViewModel() {
-        news = new MutableLiveData<>();
 
-        //TODO: Remover mock de noticias
-        //Mock de dados
-        List<News> news = new ArrayList<>();
-        news.add(new News("Brasil é vencedor novamente", "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."));
-        news.add(new News("Brasil vai jogar neste domingo","Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."));
-        news.add(new News("Brasil empata com Japão","Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."));
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://cintiaasilva.github.io/soccer-news-api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        this.news.setValue(news);
+        SoccerNewsApi api = retrofit.create(SoccerNewsApi.class);
+
+        findNews(api);
+
+    }
+
+    public void findNews(SoccerNewsApi api) {
+        api.getNews().enqueue(new Callback<List<News>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<News>> call, @NonNull Response<List<News>> response) {
+                if (response.isSuccessful()){
+                    news.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<News>> call, @NonNull Throwable t) {
+
+            }
+        });
     }
 
     // LiveData cria gatilhos da atualização da ui (elementos de tela) é um objeto observable
