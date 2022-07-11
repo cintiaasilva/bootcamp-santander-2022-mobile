@@ -21,6 +21,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NewsViewModel extends ViewModel {
 
     private final MutableLiveData<List<News>> news =  new MutableLiveData<>();
+    private final SoccerNewsApi api;
+
 
     public NewsViewModel() {
 
@@ -29,13 +31,11 @@ public class NewsViewModel extends ViewModel {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        SoccerNewsApi api = retrofit.create(SoccerNewsApi.class);
-
-        findNews(api);
-
+        api = retrofit.create(SoccerNewsApi.class);
+        findNews();
     }
 
-    public void findNews(SoccerNewsApi api) {
+    public void findNews() {
         api.getNews().enqueue(new Callback<List<News>>() {
             @Override
             public void onResponse(@NonNull Call<List<News>> call, @NonNull Response<List<News>> response) {
