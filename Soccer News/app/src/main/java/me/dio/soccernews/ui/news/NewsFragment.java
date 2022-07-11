@@ -8,10 +8,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
 
+import me.dio.soccernews.MainActivity;
 import me.dio.soccernews.data.local.AppDatabase;
 import me.dio.soccernews.databinding.FragmentNewsBinding;
 import me.dio.soccernews.ui.adapter.NewsAdapter;
@@ -19,7 +21,7 @@ import me.dio.soccernews.ui.adapter.NewsAdapter;
 public class NewsFragment extends Fragment {
 
     private FragmentNewsBinding binding;
-    private AppDatabase db;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         NewsViewModel newsViewModel = new ViewModelProvider(this).get(NewsViewModel.class);
@@ -27,15 +29,13 @@ public class NewsFragment extends Fragment {
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        db = Room.databaseBuilder(getContext(),AppDatabase.class, "soccer-news")
-                .allowMainThreadQueries()
-                .build();
 
         binding.rvNews.setLayoutManager(new LinearLayoutManager(getContext()));
         newsViewModel.getNews().observe(getViewLifecycleOwner(), news -> {
                 binding.rvNews.setAdapter(new NewsAdapter(news, updatedNews -> {
-
-                    db.newsDAO().save(updatedNews);
+                    MainActivity activity = (MainActivity) getActivity();
+                    assert activity != null;
+                    activity.getDb().newsDAO().save(updatedNews);
 
                 }));
         });
