@@ -20,7 +20,7 @@ import me.dio.soccernews.domain.News;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private final List<News> news;
-    private FavoriteListener favoriteListener;
+    private final FavoriteListener favoriteListener;
 
     public NewsAdapter(List<News> news, FavoriteListener favoriteListener) {
         this.news = news;
