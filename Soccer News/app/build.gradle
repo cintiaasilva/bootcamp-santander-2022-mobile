@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -47,6 +49,11 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.8'
     //https://developer.android.com/training/data-storage/room
     implementation "androidx.room:room-runtime:2.4.2"
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+
 
     annotationProcessor "androidx.room:room-compiler:2.4.2"
 
