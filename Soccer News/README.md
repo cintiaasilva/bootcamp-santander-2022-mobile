@@ -20,13 +20,13 @@
 
 [Cards](https://material.io/components/cards)
 
-[Retrofit]([GitHub - square/retrofit: A type-safe HTTP client for Android and the JVM](https://github.com/square/retrofit))
+[Retrofit](https://github.com/square/retrofit)
 
-[Picasso]([GitHub - square/picasso: A powerful image downloading and caching library for Android](https://github.com/square/picasso))
+[Picasso](https://github.com/square/picasso)
 
-[Roadmap]([Android Developer Roadmap: Learn to become an Android developer](https://roadmap.sh/android))
+[Roadmap](https://roadmap.sh/android)
 
-[Room]([Salvar dados em um banco de dados local usando o Room  | Desenvolvedores Android  | Android Developers](https://developer.android.com/training/data-storage/room))
+[Room]((https://developer.android.com/training/data-storage/room)
 
-[Singleton]([java - Correct implementation of initialization-on-demand holder idiom - Stack Overflow](https://stackoverflow.com/questions/21604243/correct-implementation-of-initialization-on-demand-holder-idiom))
+[Singleton](https://stackoverflow.com/questions/21604243/correct-implementation-of-initialization-on-demand-holder-idiom)
 
