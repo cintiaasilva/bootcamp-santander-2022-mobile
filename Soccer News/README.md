@@ -26,7 +26,7 @@
 
 [Roadmap](https://roadmap.sh/android)
 
-[Room]((https://developer.android.com/training/data-storage/room)
+[Room](https://developer.android.com/training/data-storage/room)
 
 [Singleton](https://stackoverflow.com/questions/21604243/correct-implementation-of-initialization-on-demand-holder-idiom)
 
